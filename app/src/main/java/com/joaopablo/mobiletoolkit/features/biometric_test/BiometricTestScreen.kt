@@ -5,7 +5,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Cancel
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Error
@@ -22,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.joaopablo.mobiletoolkit.components.ToolkitTopBar
 import com.joaopablo.mobiletoolkit.core.biometric.BiometricAuthenticator
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -37,16 +37,9 @@ fun BiometricTestScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text("Teste Biometria 🔐", fontSize = 20.sp, fontWeight = FontWeight.Bold) },
-                navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color.Transparent
-                )
+            ToolkitTopBar(
+                title = "Teste Biometria 🔐",
+                onBack = { navController.popBackStack() }
             )
         },
         containerColor = Color(0xFFF7F5FC)
